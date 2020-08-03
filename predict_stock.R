@@ -4,6 +4,15 @@ library(timeSeries)
 library(forecast)
 library(xts)
 
+hs300 <- read.csv("data/hs300.csv", header = TRUE)
+
+for (i in 1:nrow(hs300)) {
+  data <- getSymbols(as.character(hs300[i,1]), auto.assign = FALSE, 
+                     from = "2015-01-01", to = "2020-08-01", src = "yahoo")
+  abbr <- as.character(hs300[i,2])
+  assign(abbr, data)
+}
+
 getSymbols("^GSPC", from = "2015-01-01", to = "2020-08-01", src = "yahoo")
 barChart(GSPC)
 
@@ -31,11 +40,3 @@ plot(fcast2)
 
 accuracy(fcast1)
 accuracy(fcast2)
-
-
-
-
-
-
-
-
