@@ -4,8 +4,8 @@ library(timeSeries)
 library(forecast)
 library(xts)
 
-fcast_start_date <- "2020-06-01"
-fcast_end_date <- "2020-07-01"
+fcast_start_date <- "2020-04-01"
+fcast_end_date <- "2020-05-01"
 
 # calculate forecasting days
 test_data <- getSymbols("603000.ss", auto.assign = FALSE, 
