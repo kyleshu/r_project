@@ -76,6 +76,6 @@ for (i in 1:nrow(csi300)) {
   }
 }
 
-# select top 30 stocks
+# sort stocks
 df <- df[order(df$Yield, decreasing = TRUE),]
-
+write.csv(df, paste("result/", fcast_start_date, ".csv", sep = ""))
