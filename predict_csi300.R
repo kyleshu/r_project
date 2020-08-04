@@ -40,7 +40,7 @@ for (i in 1:nrow(csi300)) {
 # use AIC to determine best model and parameters, and forecast 30-day yields
 p_list <- 0:5
 q_list <- 0:5
-yields <- list()
+df <- data.frame(Code=character(), Yield=double(), stringsAsFactors=FALSE) 
 for (i in 1:nrow(csi300)) {
   abbr <- as.character(csi300[i,2])
   d <- as.double(diff_order[abbr])
@@ -70,11 +70,12 @@ for (i in 1:nrow(csi300)) {
     future_price <- fcast$mean[term]
     current_price <- as.double(data[length(data)])
     yield <- (future_price/current_price)-1
-    yields[abbr] <- yield
+    df2 <- data.frame(abbr, yield)
+    names(df2) <- c("Code", "Yield")
+    df <- rbind(df, df2)
   }
 }
 
 # select top 30 stocks
-yields <- yields[order(unlist(yields), decreasing = TRUE)]
-print(yields[1:30])
+df <- df[order(df$Yield, decreasing = TRUE),]
 
