@@ -1,0 +1,39 @@
+RStudioGD 
+        2 
+RStudioGD 
+        2 
+RStudioGD 
+        2 
+
+	Augmented Dickey-Fuller Test
+
+data:  somestock_close
+Dickey-Fuller = 0.0021564, Lag order = 11, p-value = 0.99
+alternative hypothesis: stationary
+
+Series: somestock_close 
+ARIMA(1,2,0) 
+
+Coefficients:
+          ar1
+      -0.5259
+s.e.   0.0235
+
+sigma^2 estimated as 0.7722:  log likelihood=-1717.48
+AIC=3438.96   AICc=3438.97   BIC=3449.35
+RStudioGD 
+        2 
+RStudioGD 
+        2 
+RStudioGD 
+        2 
+RStudioGD 
+        2 
+                      ME      RMSE       MAE          MPE     MAPE
+Training set 0.001738945 0.8777353 0.4715814 -0.008366012 2.865322
+                 MASE       ACF1
+Training set 1.337259 -0.1871612
+                     ME      RMSE       MAE       MPE     MAPE      MASE
+Training set 0.04320258 0.6870566 0.3517998 0.1618014 2.147377 0.9975956
+                    ACF1
+Training set 0.002052633
