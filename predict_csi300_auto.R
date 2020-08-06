@@ -5,12 +5,12 @@ library(forecast)
 library(xts)
 library(lubridate)
 
-startDate <- ymd('2019-09-01')
-endDate <- ymd('2019-10-01')
-startDates <- startDate %m+% months(c(0:10))
-endDates <- endDate %m+% months(c(0:10))
+startDate <- ymd('2018-07-01')
+endDate <- ymd('2018-08-01')
+startDates <- startDate %m+% months(c(0:24))
+endDates <- endDate %m+% months(c(0:24))
 
-for (m in 1:11) {
+for (m in 1:length(startDates)) {
 
   fcast_start_date <- as.character(startDates[m])
   fcast_end_date <- as.character(endDates[m])
