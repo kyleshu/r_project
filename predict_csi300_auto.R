@@ -43,7 +43,7 @@ for (m in 1:length(startDates)) {
     data <- get(abbr)
     
     # generate model
-    fit_model <- auto.arima(data, seasonal = FALSE)
+    fit_model <- auto.arima(data, seasonal = TRUE)
     
     # forecast
     fcast <- forecast(fit_model, h=term)
@@ -59,5 +59,5 @@ for (m in 1:length(startDates)) {
   
   # sort stocks and export
   df <- df[order(df$Yield, decreasing = TRUE),]
-  write.csv(df, paste("result_auto/", fcast_start_date, ".csv", sep = ""))
+  write.csv(df, paste("result_auto_seasonal/", fcast_start_date, ".csv", sep = ""))
 }
